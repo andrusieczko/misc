@@ -1,0 +1,38 @@
+[{
+	"keys": ["ctrl+alt+f"],
+	"command": "js_format"
+}, {
+	"keys": ["ctrl+shift+r"],
+	"command": "show_overlay",
+	"args": {
+		"overlay": "goto",
+		"show_files": true
+	}
+}, {
+	"keys": ["ctrl+alt+r"],
+	"command": "find_under_expand"
+}, {
+	"keys": ["ctrl+e"],
+	"command": "find_under_expand"
+}, {
+	"keys": ["ctrl+d"],
+	"command": "run_macro_file",
+	"args": {
+		"file": "Packages/Default/Delete Line.sublime-macro"
+	}
+}, {
+	"keys": ["alt+up"],
+	"command": "swap_line_up"
+}, {
+	"keys": ["alt+down"],
+	"command": "swap_line_down"
+}, {
+	"keys": ["alt+shift+f"],
+	"command": "reindent"
+}, {
+	"keys": ["alt+s"],
+	"command": "toggle_side_bar"
+}, {
+	"keys": ["ctrl+o"],
+	"command": "reveal_in_side_bar"
+}]
