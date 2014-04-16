@@ -1,0 +1,90 @@
+<html>
+  <head>
+    <script src="http://builds.handlebarsjs.com.s3.amazonaws.com/handlebars-v1.3.0.js"></script>
+    <script src="https://raw.githubusercontent.com/andrusieczko/misc/master/templatesEngine/templatesEngine.js"></script>
+  </head>
+
+  <body>
+  
+    <script>
+      var data = {
+        asia: {
+          population: 4300000000,
+          countries: [{
+            name: 'Singapore',
+            capital: 'Singapore'
+          }, {
+            name: 'China',
+            capital: 'Beijing'
+          }]
+        },
+        america: {
+          population: 953700000,
+          countries: [{
+            name: 'United States',
+            capital: 'Washington D.C.',
+            biggestCities: ['New York', 'Chicago', 'Los Angeles']
+          }]
+        },
+        europe: {
+          population: 739165000,
+          countries: [{
+            name: 'Poland',
+            capital: 'Warsaw',
+            biggestCities: ['Warsaw', 'Lodz', 'Cracow', 'Wroclaw', 'Gdansk']
+          }]
+        }
+      };
+
+      templatesEngine.compileOnRun(data);
+    </script>
+
+    <!-- TEMPLATES -->
+
+    <script id="countries" type="text/x-handlebars-template">    
+      <h4>Countries: </h4>
+      <ul>
+        {{#each data.countries}}
+          <li>
+            <span>{{name}} - {{capital}}</span>
+            {{#if biggestCities }}
+              (biggest cities: 
+                {{#each biggestCities }}
+                  {{#if @index}}, {{/if}}{{this}}
+                {{/each}})
+            {{/if}}
+          </li>
+        {{/each}}
+      </ul>
+    </script>
+
+    <script id="template1" type="text/x-handlebars-template">
+      <h1>Continents</h1>
+      <ul style="list-style: none">
+        {{#each data }}
+          <li>
+            <h2>{{@key}}</h2>
+            <h4>Population: {{ population }}</h4>
+            <div tpl="countries" source="{{@key}}"></div>
+          </li>
+        {{/each}}
+      </ul>
+    </script>
+
+    <script id="populationOfContinent" type="text/x-handlebars-template">
+      Population: {{ data.population }}
+    </script>
+
+    <!-- /TEMPLATES -->
+
+    <!-- CODE -->
+
+    <div tpl="template1"></div>
+
+    <h2 tpl="populationOfContinent" source="europe"></h2>
+    <h2 tpl="populationOfContinent" source="asia"></h2>
+
+    <!-- /CODE -->
+
+  </body>
+</html>
