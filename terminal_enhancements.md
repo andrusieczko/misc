@@ -8,11 +8,19 @@ export PS1='\w$(__git_ps1 " (%s)")> '
 ```
 
 # MAC OS
+### paste it on the end of your ~/.bash_profile file
+
 ## git support
-### paste it on the end of your ~/.profile file
 
 ```
 PS1='\n\033[0;34m\u@\h:\033[0;31m\w \033[01;35m $(vcprompt -f '[%b%m%u]')\033[00m \n> '
+```
+
+## better coloring (e.g. differentation between folders and files)
+```
+alias ll='ls -la'
+export CLICOLOR=1
+export LSCOLORS=ExFxBxDxCxegedabagacad
 ```
 
 ## Make 'Home' and 'End' keys usable in text editors
